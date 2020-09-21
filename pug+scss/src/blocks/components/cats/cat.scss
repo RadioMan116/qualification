@@ -1,0 +1,227 @@
+.cat {
+	// width: calc(100%/3 - 16px);
+	width: 320px;
+	max-width: 100%;
+	font-family: "Trebuchet MS", sans-serif;
+	padding: 16px;
+
+	@media screen and (max-width:1055px) {
+		&:first-of-type {
+			order: -2;
+		}
+	}
+
+	&:hover {
+		.cat {
+			&-inner {
+				border-color: $baseHover;
+			}
+
+			&-inner:before, &-weight {
+				background: $baseHover;
+			}
+			&-buy {
+				color: $baseHover;
+				border-bottom: 1px dashed $baseHover;
+			}
+		}
+	}
+
+	&-inner {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		position: relative;
+		height: 478px;
+		border: solid 4px $base;
+		padding: 21px 51px;
+		transition: .3s;
+		border-radius: 12px;
+		background: #f2f2f2;
+		color: #000;
+		clip-path: polygon(40px 0, 100% 0, 100% 100%, 0 100%, 0 40px);
+		margin-bottom: 14px;
+		cursor: pointer;
+
+		&:before {
+			content: "";
+			display: flex;
+			position: absolute;
+			top: 30px;
+			left: 0;
+			width: 53px;
+			height: 7px;
+			transform: rotate(-45deg);
+			transition: .3s;
+			transform-origin: bottom left;
+			background: $base;
+		}
+	}
+
+	&-caption {
+		color: #666666;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 19px;
+	}
+
+	&-title {
+		font-size: 48px;
+		font-weight: 700;
+		line-height: 56px;
+	}
+
+	&-desc {
+		font-size: 24px;
+		font-weight: 700;
+		line-height: 28px;
+		margin-bottom: 15px;
+	}
+
+	&-servings {
+		color: #666666;
+		font-size: 14px;
+		font-weight: 700;
+		line-height: 16px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&-gift {}
+
+	&-weight {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		right: 16px;
+		bottom: 16px;
+		width: 80px;
+		height: 80px;
+		transition: .3s;
+		background: $base;
+		border-radius: 50%;
+		color: #ffffff;
+		font-size: 21px;
+		line-height: 1;
+
+		span {
+			height: 22px;
+			font-size: 42px;
+			font-weight: 400;
+			line-height: 1;
+			text-align: center;
+			margin-bottom: 16px;
+			letter-spacing: -1.5px;
+		}
+	}
+
+	&-offer {
+		font-size: 13px;
+		font-weight: 400;
+		line-height: 15px;
+		text-align: center;
+		color: #ffffff;
+	}
+
+	&-pic {
+		// background: url(../../images/cat.png);
+		display: flex;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+
+		&:before {
+			content: url(../../images/cat.png);
+		}
+	}
+
+	&-buy {
+		color: $base;
+		border-bottom: 1px dashed $base;
+		text-decoration: unset;
+		margin-left: 5px;
+	}
+
+	&:not(.active) &-composition {
+		display: none;
+	}
+
+	&:not(.activeHover) &-disapproves {
+		display: none;
+	}
+
+	&:not(.disabled) &-disable-text {
+		display: none;
+	}
+
+	&-disapproves {
+		color: $activeHoverText;
+	}
+
+	&-disable-text {
+		color: #ffff66;
+	}
+
+	&.active, &.disabled {
+		.cat {
+			&-text {
+				display: none;
+			}
+		}
+	}
+
+	&.disabled {
+		pointer-events: none;
+
+		.cat {
+			&-inner {
+				border-color: $disabled;
+
+				&:after {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					background: #ffffff;
+					opacity: 0.49988678;
+				}
+			}
+
+			&-inner:before, &-weight {
+				background: $disabled;
+			}
+		}
+	}
+
+	&.active {
+		.cat {
+			&-inner {
+				border-color: $active;
+			}
+
+			&-inner:before, &-weight {
+				background: $active;
+			}
+		}
+	}
+
+	&.activeHover {
+		.cat {
+			&-inner {
+				border-color: $activeHover;
+			}
+
+			&-text, &-info {
+				display: none;
+			}
+
+			&-inner:before, &-weight {
+				background: $activeHover;
+			}
+		}
+	}
+}

@@ -1,0 +1,27 @@
+mixin cat(caption, title, desc, servings, gift,weight, composition, disableText , satisfied= false, disabled= false)
+	.cat(class = disabled ? 'disabled': '')
+		.cat-inner
+			.cat-caption
+				.cat-info= caption
+				.cat-disapproves Котэ не одобряет?
+			.cat-title= title
+
+			.cat-desc= desc
+
+			.cat-servings
+				span= servings
+				span= gift
+				if satisfied
+					span заказчик доволен
+			.cat-pic
+				img(src="../../img/cat.png", alt="")
+
+			.cat-weight
+				span= weight
+				| кг
+
+		.cat-offer
+			.cat-text Чего сидишь? Порадуй котэ,
+				a.cat-buy.js-cat-buy(href='#') купи
+			.cat-composition= composition
+			.cat-disable-text= disableText

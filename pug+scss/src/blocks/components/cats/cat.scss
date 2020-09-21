@@ -132,9 +132,9 @@
 		bottom: 0;
 		left: 0;
 
-		&:before {
-			content: url(../../images/cat.png);
-		}
+		// &:before {
+		// 	content: url(../../images/cat.png);
+		// }
 	}
 
 	&-buy {
@@ -142,6 +142,7 @@
 		border-bottom: 1px dashed $base;
 		text-decoration: unset;
 		margin-left: 5px;
+		cursor: pointer;
 	}
 
 	&:not(.active) &-composition {
